@@ -16,10 +16,6 @@ async function run() {
       team_slug
     });
     core.debug(`team_id ${team_id}`);
-    const { data: members } = await octokit.teams.listMembers({
-      team_id
-    });
-    core.debug(`members ${members}`);
     const query = `query {
       organization(login:"maintainers") {
         teams(query:"github-employees", first:1){
@@ -36,7 +32,9 @@ async function run() {
         }
       }
     }`;
-    function kenny(logins) { return logins.map(a => a.login).join(','); }
+    function kenny(logins) {
+      return logins.map(a => a.login).join(",");
+    }
     const members = await octokit.graphql(query);
     core.debug(`members ${kenny(members)}`);
     const alumni = members.filter(member => member.isEmployee);
