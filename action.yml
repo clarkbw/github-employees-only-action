@@ -1,6 +1,11 @@
 name: 'GitHub Employees Only'
 description: 'Check that all members of a team are actually GitHub employees'
 author: 'clarkbw'
+inputs:
+  repo-token:
+    description: 'The GITHUB_TOKEN secret'
+  team-slug:
+    description: 'The URL path name for your team https://github.com/orgs/maintainers/teams/XX'
 runs:
   using: 'node12'
   main: 'lib/main.js'

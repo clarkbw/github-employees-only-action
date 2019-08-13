@@ -4,7 +4,7 @@ import * as github from "@actions/github";
 async function run() {
   try {
     const token = core.getInput("repo-token", { required: true });
-    const team_slug = core.getInput("team_slug", { required: true });
+    const team_slug = core.getInput("team-slug", { required: true });
     core.debug(`checking team #${team_slug}`);
     const octokit = new github.GitHub(token);
 
