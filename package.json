@@ -5,7 +5,7 @@
   "description": "Node 12 template action",
   "main": "lib/main.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -fr node_modules/ && yarn install && tsc && rm -fr node_modules/ && git co node_modules",
     "test": "jest"
   },
   "repository": {
