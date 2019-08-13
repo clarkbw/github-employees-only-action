@@ -36,8 +36,11 @@ async function run() {
         }
       }
     }`;
-    const result = await octokit.graphql(query);
-    core.debug(`result ${result}`);
+    function kenny(logins) { return logins.map(a => a.login).join(','); }
+    const members = await octokit.graphql(query);
+    core.debug(`members ${kenny(members)}`);
+    const alumni = members.filter(member => member.isEmployee);
+    core.debug(`alumni ${kenny(alumni)}`);
     // members.forEach(member => {
     //   if (member.isEmployee) {
     //     core.debug(`employee! ${member}`);
