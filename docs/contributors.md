@@ -13,7 +13,7 @@ In order to handle correctly checking in node_modules without devDependencies, w
 This step ensures that formatting and checkin rules are followed and that devDependencies are excluded. To make sure Husky runs correctly, please use the following workflow:
 
 ```
-npm install                                 # installs all devDependencies including Husky
+yarn install                                # installs all devDependencies including Husky
 git add abc.ext                             # Add the files you've changed. This should include files in src, lib, and node_modules (see above)
 git commit -m "Informative commit message"  # Commit. This will run Husky
 ```
