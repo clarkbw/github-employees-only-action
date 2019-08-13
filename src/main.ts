@@ -39,7 +39,7 @@ async function run() {
     core.debug(`STRINGIFY ${JSON.stringify(results)}`);
     const members = results.organization.teams.nodes[0].members.nodes;
     core.debug(`members ${kenny(members)}`);
-    const alumni = members.filter(member => member.isEmployee);
+    const alumni = members.filter(member => !member.isEmployee);
     core.debug(`alumni ${kenny(alumni)}`);
     // members.forEach(member => {
     //   if (member.isEmployee) {
