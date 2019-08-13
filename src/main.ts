@@ -36,6 +36,7 @@ async function run() {
       return logins.map(a => a.login).join(",");
     }
     const results = await octokit.graphql(query);
+    core.debug(`STRINGIFY ${JSON.stringify(results)}`);
     const members = results.data.organization.teams.nodes[0].members.nodes;
     core.debug(`members ${kenny(members)}`);
     const alumni = members.filter(member => member.isEmployee);
