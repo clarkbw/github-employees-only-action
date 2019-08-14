@@ -3,7 +3,7 @@ description: 'Check that all members of a team are actually GitHub employees'
 author: 'clarkbw'
 inputs:
   repo-token:
-    description: 'The GITHUB_TOKEN secret'
+    description: 'A PAT (Personal Access Token) with org level permissions'
   team-slug:
     description: 'The URL path name for your team https://github.com/orgs/maintainers/teams/XX'
 runs:
