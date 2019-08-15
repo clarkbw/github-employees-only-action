@@ -6,6 +6,11 @@ inputs:
     description: 'A PAT (Personal Access Token) with org level permissions'
   team-slug:
     description: 'The URL path name for your team https://github.com/orgs/maintainers/teams/XX'
+outputs:
+  non-employees:
+    description: 'JSON object array of { login, id } objects representing people where isEmployee = false'
+  team-id:
+    description: 'GitHub id of the team from the given team-slug input'
 runs:
   using: 'node12'
   main: 'lib/main.js'
