@@ -5,7 +5,9 @@
   "description": "Node 12 template action",
   "main": "lib/main.js",
   "scripts": {
-    "build": "rm -fr node_modules/ && yarn install && tsc && rm -fr node_modules/ && git co node_modules",
+    "dev": "rm -fr node_modules/ && yarn install",
+    "build": "yarn dev && tsc && yarn restore",
+    "restore": "rm -fr node_modules/ && git co node_modules",
     "test": "jest"
   },
   "repository": {
