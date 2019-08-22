@@ -64,7 +64,7 @@ export default async (token: string, team_slug: string) => {
   let results: Results = await octokit.graphql(query);
   core.debug(`results ${JSON.stringify(results)}`);
 
-  const members: TeamMember[] =
+  let members: TeamMember[] =
     results.organization.teams.nodes[0].members.nodes;
   core.debug(`members ${JSON.stringify(members)}`);
 
@@ -77,7 +77,7 @@ export default async (token: string, team_slug: string) => {
     results = await octokit.graphql(query);
     core.debug(`paging results ${JSON.stringify(results)}`);
 
-    members.concat(results.organization.teams.nodes[0].members.nodes);
+    members = members.concat(results.organization.teams.nodes[0].members.nodes);
 
     paging = results.organization.teams.nodes[0].members.pageInfo.hasNextPage;
   }
